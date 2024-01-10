@@ -58,3 +58,35 @@
 # Задание 7
 
 Дана строка. Удалите из нее все символы, чьи индексы делятся на 3.
+
+## Задание *
+
+Создайте функцию, которая выдает персональное приветствие. Эта функция принимает два параметра: имя и владелец.
+Используйте условные обозначения, чтобы вернуть нужное сообщение:
+
+```python
+def greet(name, owner):
+    pass
+
+assert greet('Daniel', 'Daniel') == 'Hello boss'
+assert greet('Greg', 'Daniel') == 'Hello guest'
+```
+
+## Задание **
+
+Вам нужно написать функцию, которая меняет местами слова в заданной строке.
+Слово также может быть пустой строкой. Если это недостаточно понятно, приведите несколько примеров:
+
+```text
+"Hello World" --> Hello World
+"Hi There." --> "Hi There."
+```
+```python
+def replase_worlds(string):
+    pass
+
+assert replase_worlds("Hello World") == "World Hello"
+assert replase_worlds("Hi There.") == "There. Hi"
+assert replase_worlds("") == ""
+```
+
