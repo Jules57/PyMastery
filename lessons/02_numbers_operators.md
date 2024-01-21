@@ -384,13 +384,13 @@ else:
 Также мы можем добавить промежуточные условия, если первый `if` не был выполнен при помощи `elif`
 
 ```python
-a = 80
-if a > 100:
-    print('won\'t be printed')
-elif a > 50:
-    print('will be printed')
+number = 10
+if number > 0:
+    print('The number is positive.')
+elif number < 0:
+    print('The number is negative.')
 else:
-    print('won\'t be printed')
+    print('The number is zero')
 ```
 
 На самом деле, это просто синтаксическое упрощение множества условий в блоке `if`.
