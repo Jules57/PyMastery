@@ -70,8 +70,8 @@ def greet(name, owner):
     pass
 
 
-assert greet('Daniel', 'Daniel') == 'Hello boss'
-assert greet('Greg', 'Daniel') == 'Hello guest'
+assert greet('Daniel', 'Daniel') == 'Hello, boss'
+assert greet('Greg', 'Daniel') == 'Hello, guest'
 ```
 
 # Задание 9
