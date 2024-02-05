@@ -36,16 +36,16 @@
 вручную.
 
 ```python
->> > hash(3.14)
+>>> hash(3.14)
 322818021289917443
 
->> > hash(3.14159265358979323846264338327950288419716939937510)
+>>> hash(3.14159265358979323846264338327950288419716939937510)
 326490430436040707
 
->> > hash("Lorem")
+>>> hash("Lorem")
 7677195529669851635
 
->> > hash("""Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+>>> hash("""Lorem ipsum dolor sit amet, consectetur adipisicing elit,
 sed do eiusmod tempor incididunt ut labore et dolore magna
 aliqua. Ut enim ad minim veniam, quis nostrud exercitation
 ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -65,13 +65,13 @@ deserunt mollit anim id est laborum.""")
 тот же результат:
 
 ```python
->> > hash("Lorem")
+>>> hash("Lorem")
 7677195529669851635
 
->> > hash("Lorem")
+>>> hash("Lorem")
 7677195529669851635
 
->> > hash("Lorem")
+>>> hash("Lorem")
 7677195529669851635
 ```
 
@@ -123,19 +123,19 @@ deserunt mollit anim id est laborum.""")
 заключить их в фигурные скобки и разделить запятыми.
 
 ```python
-empty_set = set()
+>>> empty_set = set()
 # set()
 
-set_from_string = set('hello world')
+>>> set_from_string = set('hello world')
 # {'d', 'l', 'h', 'r', 'e', ' ', 'w', 'o'}
 
-set_from_list = set([1, 2, 3, 4, 5])
+>>> set_from_list = set([1, 2, 3, 4, 5])
 # {1, 2, 3, 4, 5}
 
-random_set = {1, 2, 3, 'a', 'c', 0.34}
+>>> random_set = {1, 2, 3, 'a', 'c', 0.34}
 # {0.34, 1, 2, 3, 'a', 'c'}
 
-incorrect_set = {1, 2, [1, 2]}
+>>> incorrect_set = {1, 2, [1, 2]}
 # Traceback (most recent call last):
 #   File "<stdin>", line 1, in <module>
 # TypeError: unhashable type: 'list'
@@ -172,8 +172,8 @@ incorrect_set = {1, 2, [1, 2]}
 Функция `len()`
 
 ```python
-new_set = {'hello', 'there', 'here', 'are', 'numbers', 1, 2, 3, 19, 42}
-len(new_set)
+>>> new_set = {'hello', 'there', 'here', 'are', 'numbers', 1, 2, 3, 19, 42}
+>>> len(new_set)
 # 10
 ```
 
@@ -183,7 +183,7 @@ len(new_set)
 элемента в множество используется метод `add()`
 
 ```python
-new_set.add(34)
+>>> new_set.add(34)
 # {1, 2, 3, 34, 42, 'there', 'are', 19, 'hello', 'here', 'numbers'}
 ```
 
@@ -195,9 +195,9 @@ new_set.add(34)
 множество. Отдельные элементы объекта, передаваемого в качестве аргумента, становятся элементами множества.
 
 ```python
-my_set = {1, 2, 3}
-my_set.update([4, 5, 6])
-my_set
+>>> my_set = {1, 2, 3}
+>>> my_set.update([4, 5, 6])
+>>> my_set
 # {1, 2, 3, 4, 5, 6}
 ```
 
@@ -209,36 +209,36 @@ my_set
 Чтобы удалить все элементы множества, используется метод `clear()`.
 
 ```python
-my_set = {1, 2, 3, 4, 5}
-my_set.remove(2)
-my_set
+>>> my_set = {1, 2, 3, 4, 5}
+>>> my_set.remove(2)
+>>> my_set
 # {1, 3, 4, 5}
 
-my_set.discard(5)
+>>> my_set.discard(5)
 # {1, 2, 3, 4}
 
-my_set.discard(100)
+>>> my_set.discard(100)
 
-my_set.remove(100)
+>>> my_set.remove(100)
 # Traceback (most recent call last):
 #   ...
 # KeyError: 100
 
-my_set.clear()
+>>> my_set.clear()
 # set()
 ```
 
 Чтобы проверить вхождение элемента в множество, используется оператор `in` или `not in`.
 
 ```python
-my_set = {1, 2, 3, 4, 5}
-5 in my_set
+>>> my_set = {1, 2, 3, 4, 5}
+>>> 5 in my_set
 # True
 
-100 in my_set
+>>> 100 in my_set
 # False
 
-3 not in my_set
+>>> 3 not in my_set
 # False
 ```
 
@@ -261,13 +261,13 @@ my_set = {1, 2, 3, 4, 5}
 множества1 и элементы множества2.
 
 ```python
-set1 = {1, 2, 3, 4, 5}
-set2 = {3, 4, 5, 6, 7}
+>>> set1 = {1, 2, 3, 4, 5}
+>>> set2 = {3, 4, 5, 6, 7}
 
-set1.union(set2)
+>>> set1.union(set2)
 # {1, 2, 3, 4, 5, 6, 7}
 
-set1 | set2
+>>> set1 | set2
 # {1, 2, 3, 4, 5, 6, 7}
 ```
 
@@ -290,13 +290,13 @@ set1 | set2
 находящиеся одновременно в множестве1 и в множестве2. 
 
 ```python
-set1 = {1, 2, 3, 4, 5}
-set2 = {3, 4, 5, 6, 7}
+>>> set1 = {1, 2, 3, 4, 5}
+>>> set2 = {3, 4, 5, 6, 7}
 
-set1.intersection(set2)
+>>> set1.intersection(set2)
 # {3, 4, 5}
 
-set1 & set2
+>>> set1 & set2
 # {3, 4, 5}
 ```
 
@@ -318,13 +318,13 @@ set1 & set2
 множества1, не входящие в множество2. 
 
 ```python
-set1 = set([1, 2, 3, 4])
-set2 = set([3, 4, 5, 6])
+>>> set1 = set([1, 2, 3, 4])
+>>> set2 = set([3, 4, 5, 6])
 
-set1.difference(set2)
+>>> set1.difference(set2)
 # {1, 2}
 
-set1 - set2
+>>> set1 - set2
 # {1, 2}
 ```
 
@@ -349,13 +349,13 @@ set1 - set2
 элементы либо множества1, либо множества2, но не входят в оба множества одновременно. 
 
 ```python
-set1 = {1, 2, 3, 4, 5}
-set2 = {4, 5, 6, 7}
+>>> set1 = {1, 2, 3, 4, 5}
+>>> set2 = {4, 5, 6, 7}
 
-set1.symmetric_difference(set2)
+>>> set1.symmetric_difference(set2)
 # c
 
-set1 ^ set2
+>>> set1 ^ set2
 # set1 ^ set2
 ```
 
@@ -364,13 +364,13 @@ set1 ^ set2
 Предположим, что имеется два множества, и одно из этих множеств содержит все элементы другого множества. Вот пример:
 
 ```python
-setl = set([1, 2, 3, 4]) 
-set2 = set([2, 3])
+>>> setl = set([1, 2, 3, 4]) 
+>>> set2 = set([2, 3])
 
-set2.issubset(set2)
+>>> set2.issubset(set2)
 # True
 
-set1.issuperset(set2)
+>>> set1.issuperset(set2)
 # True
 ```
 
@@ -404,8 +404,8 @@ Set comprehension в Python — это компактный способ соз�
 условие — необязательный фильтр, который применяется к каждому элементу.
 
 ```python
-numbers = [1, 2, 3, 4, 5, 2, 3, 4]
-squared_even_numbers = {x**2 for x in numbers if not x % 2}
+>>> numbers = [1, 2, 3, 4, 5, 2, 3, 4]
+>>> squared_even_numbers = {x**2 for x in numbers if not x % 2}
  # {16, 4}
 ```
 
@@ -422,29 +422,29 @@ squared_even_numbers = {x**2 for x in numbers if not x % 2}
 - Поддержка операций над множествами: frozenset поддерживает все операции, доступные для обычных множеств, такие как объединение, пересечение, разность и симметрическая разность.
 
 ```python
-fs1 = frozenset([1, 2, 3])
-fs2 = frozenset([4, 5, 6])
+>>> fs1 = frozenset([1, 2, 3])
+>>> fs2 = frozenset([4, 5, 6])
 
-my_dict = {fs1: "abc", fs2: "def"}
+>>> my_dict = {fs1: "abc", fs2: "def"}
 
-my_dict[fs1]
+>>> my_dict[fs1]
 # abc
 
-my_dict[fs2]
+>>> my_dict[fs2]
 # def
 
-fs1 = frozenset([1, 2, 3, 4, 5])
-fs2 = frozenset([4, 5, 6, 7, 8])
+>>> fs1 = frozenset([1, 2, 3, 4, 5])
+>>> fs2 = frozenset([4, 5, 6, 7, 8])
 
-union = fs1 | fs2
+>>> union = fs1 | fs2
 # frozenset({1, 2, 3, 4, 5, 6, 7, 8})
 
-intersection = fs1 & fs2
+>>> intersection = fs1 & fs2
 # frozenset({4, 5})
 
-difference = fs1 - fs2
+>>> difference = fs1 - fs2
 # frozenset({1, 2, 3})
 
-symmetric_difference = fs1 ^ fs2
+>>> symmetric_difference = fs1 ^ fs2
 # frozenset({1, 2, 3, 6, 7, 8})
 ```
