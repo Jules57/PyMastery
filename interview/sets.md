@@ -9,7 +9,7 @@ myset = set(25)
 
 myset = set('aaa bbb ccc ddd')
 
-myset = set([l, 2, 2, 3, 4, 4, 4])
+myset = set([1, 2, 2, 3, 4, 4, 4])
 
 myset = set(['aaa', 'bbb', 'ccc', 'ddd'])
 ```
