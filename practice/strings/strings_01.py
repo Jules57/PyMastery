@@ -31,7 +31,7 @@
 
 
 def find_pigs(text):
-    text = f" {text.lower()} "
+    text = text.lower()
     print(text)
     punctuation = ['.', ',', '!', ':', ';', '?', '\'', '(', ')', '...']
     clean_text = ''
