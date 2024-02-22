@@ -363,7 +363,8 @@ add_numbers()
 количество аргументов. Эти механизмы известны как *args и **kwargs. Они предоставляют гибкость при определении и вызове
 функций, делая ваш код более читаемым и эффективным при обработке неопределенного количества аргументов.
 
-`*args` позволяет функции принимать любое количество позиционных аргументов в виде кортежа. Это особенно полезно, когда вы
+`*args` позволяет функции принимать любое количество позиционных аргументов в виде кортежа. Это особенно полезно, когда
+вы
 не знаете заранее, сколько аргументов будет передано вашей функции.
 
 Пример использования *args:
@@ -372,9 +373,10 @@ add_numbers()
 def find_total(*args):
     return sum(args)
 
-print(find_total(1, 2, 3))  
+
+print(find_total(1, 2, 3))
 # Вывод: 6
-print(find_total(1, 2, 3, 4, 5))  
+print(find_total(1, 2, 3, 4, 5))
 # Вывод: 15
 ```
 
@@ -382,16 +384,18 @@ print(find_total(1, 2, 3, 4, 5))
 ситуаций, когда вы хотите обрабатывать именованные аргументы, которые заранее неизвестны.
 
 Пример использования **kwargs:
+
 ```python
 
 def show_info(**kwargs):
-    for key, value  in kwargs.items():
+    for key, value in kwargs.items():
         print(f"{key}: {value}")
+
 
 show_info(name="Will", age=30, city="Jamaica")
 ```
 
-Вы можете использовать *args и **kwargs вместе, если ваша функция должна принимать как позиционные, так и именованные 
+Вы можете использовать *args и **kwargs вместе, если ваша функция должна принимать как позиционные, так и именованные
 аргументы в переменном количестве.
 
 ```python
@@ -399,10 +403,66 @@ def foo(*args, **kwargs):
     print("Positional arguments:", args)
     print("Named arguments:", kwargs)
 
+
 foo(1, 2, 3, name="Will", age=25)
 # Вывод:
 # Positional arguments: (1, 2, 3)
 # Named arguments: {'name': 'Will', 'age': 25}
+```
+
+Комплексный пример передачи аргументов
+
+```python
+def greet(name: str, greeting: str = "Hello") -> str:
+    """Greets a person with a specified greeting.
+    
+    Args:
+        name (str): The name of the person.
+        greeting (str, optional): The greeting. Defaults to "Hello".
+    
+    Returns:
+        str: A greeting message.
+    """
+    return f"{greeting}, {name}!"
+
+
+def sum_numbers(*args) -> int:
+    """Sums any number of numeric arguments.
+    
+    Returns:
+        float: The sum of the provided numbers.
+    """
+    return sum(args)
+
+
+def execute_functions(*args, **kwargs):
+    """Executes predefined functions with given arguments.
+    
+    This function demonstrates calling other functions with all types of arguments:
+    positional, named, *args, and **kwargs.
+    """
+    # Extracting specific arguments for the greet function
+    name = kwargs.pop('name', 'User')
+    greeting = kwargs.pop('greeting', 'Hi')
+
+    # Calling the first function with positional and named arguments
+    greeting_result = greet(name, greeting=greeting)
+
+    # Calling the second function with *args
+    sum_result = sum_numbers(*args)
+
+    print(greeting_result)
+    print(f"The sum of provided numbers is: {sum_result}")
+
+    # If there are any **kwargs left, print them
+    if kwargs:
+        print("Additional named arguments received:")
+        for key, value in kwargs.items():
+            print(f"{key}: {value}")
+
+
+execute_functions(1, 2, 3, 4, 5, name="Alice", greeting="Welcome", unused_kwarg="This is an extra named argument.")
+
 ```
 
 # Глобальные переменные и глобальные константы
@@ -434,6 +494,52 @@ foo(1, 2, 3, name="Will", age=25)
   переменной.
   В большинстве случаев следует создавать переменные локально и передавать их в качестве аргументов в функции, которым
 - нужно к ним обратиться.
+
+В Python, ключевые слова `global` и `nonlocal` используются для работы с переменными в различных областях видимости. 
+`global` позволяет функциям модифицировать переменные, объявленные в глобальной области видимости, в то время как `nonlocal`
+используется для изменения переменных в областях видимости, окружающих (например, во вложенных функциях), но не
+являющихся глобальными.
+
+Пример с `global`
+
+```python
+counter = 0 # Глобальная переменная
+
+def increment_counter():
+    global counter # Указываем, что будем работать с глобальной переменной
+    counter += 1 # Инкрементируем глобальную переменную
+
+increment_counter()
+print(f"Counter after increment: {counter}")  
+# Output: 
+# Counter after increment: 1
+```
+
+В этом примере `increment_counter` изменяет значение глобальной переменной `counter`. Без ключевого слова `global`, 
+попытка изменить `counter` привела бы к созданию новой локальной переменной внутри функции, оставив глобальную 
+переменную `counter` неизменной.
+
+```python
+def outer_function():
+    outer_var = "I'm outside!"  # Переменная в области видимости внешней функции
+    
+    def inner_function():
+          nonlocal outer_var  # Указываем, что будем работать с переменной из внешней функции
+          outer_var = "I've been changed by inner_function!"  # Изменяем переменную внешней функции
+
+    print(f"Before inner_function: {outer_var}")
+    inner_function()
+    print(f"After inner_function: {outer_var}")
+
+outer_function()
+# Output:
+# Before inner_function: I'm outside!
+# After inner_function: I've been changed by inner_function!
+```
+
+Здесь, `inner_function` изменяет значение переменной `outer_var`, объявленной в области видимости внешней функции
+`outer_function`. Без ключевого слова `nonlocal`, изменение `outer_var` в `inner_function` привело бы к созданию новой 
+локальной переменной внутри `inner_function`, не затрагивая переменную в `outer_function`.
 
 # Глобальные константы
 
