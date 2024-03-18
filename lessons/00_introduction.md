@@ -359,7 +359,7 @@ def calculate_distance(path: Path) -> float:
 - изменяемые (mutable) (list, dict, set)
 - неизменяемые (immutable) (numbers (int, float, decimal, complex, fractions), str, tuple)
 - упорядоченные (ordered) (list, tuple, str)
-- неупорядоченные (unordered) (set)
+- неупорядоченные (unordered) (set, dict)
 
 ## Как проверить тип данных в Python?
 
